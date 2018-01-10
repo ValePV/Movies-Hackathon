@@ -1,8 +1,9 @@
-body{
+body {
   font-family: 'Libre Franklin', sans-serif;
+  background-color: #262626;
 }
 
-.navigation{
+.navigation {
   background-color: black;
   border-radius: 0em;
   margin-bottom: 0em;
@@ -17,7 +18,7 @@ body{
 
 }
 
-.navbar-default .navbar-nav>li>a{
+.navbar-default .navbar-nav>li>a {
 color: #c7c7c7;
 }
 
@@ -27,97 +28,98 @@ color: #c7c7c7;
 
 }
 
-.log{
+.log {
   width: 10em;
   height: 5em;
 }
 
-.logo{
+.logo {
   width: 150%;
   display: inline-block;
 
 }
 
-.nav_bar{
+.nav_bar {
 padding-top: 1em;
 }
 
-.btn_log{
+.btn_log {
   background-color: black;
   border: 0.1em solid rgb(248, 158, 0);
 }
 
-.btn_log:hover{
+.btn_log:hover {
   background-color: rgb(248, 158, 0);
   border: 0.1em solid rgb(248, 158, 0);
 }
 
-.btn_log:focus{
+.btn_log:focus {
   background-color: rgb(248, 158, 0);
   border: 0.1em solid rgb(248, 158, 0);
 }
 
-.btn_log:visited{
+.btn_log:visited {
   background-color: rgb(248, 158, 0);
   border: 0.1em solid rgb(248, 158, 0);
 }
 
-.btn_log:active{
+.btn_log:active {
   background-color: rgb(248, 158, 0);
   border: 0.1em solid rgb(248, 158, 0);
 }
 
-.modal_background{
+.modal_background {
   background-color: black;
   text-align: center;
   color: rgb(248, 158, 0);
   font-family: 'Libre Franklin', sans-serif;
 }
 
-.m_head{
+.m_head {
   border-bottom: 1px solid rgb(248, 158, 0);
   
 }
 
-.m_footer{
+.m_footer {
   border-top: 1px solid rgb(248, 158, 0);
 }
 
-.btn_create{
+.btn_create {
   background-color: rgb(248, 158, 0);
   border: 1px solid rgb(248, 158, 0);
 }
 
-.btn_create:hover{
+.btn_create:hover {
   background-color: rgb(248, 158, 0);
   border: 1px solid rgb(248, 158, 0);
 }
 
-.btn_create:active{
+.btn_create:active {
   background-color: rgb(248, 158, 0);
   border: 1px solid rgb(248, 158, 0);
 }
 
-.btn_create:focus{
+.btn_create:focus {
   background-color: rgb(248, 158, 0);
   border: 1px solid rgb(248, 158, 0);
 }
 
-.link a:focus{
+.link a:focus {
   background-color: rgb(248, 158, 0);
 }
 
 .first_section{
-  background-color: #262626;
+  
 }
 
-.title{
+.title {
   color: rgb(248, 158, 0);
   font-family: 'Libre Franklin', sans-serif;
-  padding-top: 1em;
+  padding-top: 4em;
+  text-align: center;
 }
 
-.card{
+.card {
   margin-top: 2em;
   margin-right: 4em;
   background-color: rgb(248, 158, 0);
@@ -125,11 +127,70 @@ padding-top: 1em;
   display: inline-block;
 }
 
-.cards_movies{
+.cards_movies {
  width: 100%;
   
 }
 
-.nav_float{
+.nav_float {
   float: right !important;
+}
+
+.btn_movie {
+  color: #262626;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 30px;
+
+}
+
+.btn_movie:hover{
+  color: #fff;
+}
+
+.gradient {
+  background: linear-gradient(to right, #F86400, #F89E00);
+  position: relative;
+  top: 6em;
+  padding-top: 2em;
+  padding-bottom: 1em;
+  cursor: pointer;
+  text-align: center;
+}
+
+.sub_title {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 16px;
+
+}
+/*
+.sub_title{
+  color: #262626;;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 16px;
+  padding-left: 18em;
+}
+
+.sub_title:hover{
+  color: #fff;
+}
+*/
+.div_row {
+  margin-left: 0em;
+  margin-right: 0em;
+}
+
+.title_2 {
+  color: rgb(248, 158, 0);
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+.btn_thumb {
+  background-color: #c7c7c7;
+  color: #fff;
+  border: 0.1em solid #fff;
+  color: #262626;
+}
+
+.btn_thumb:hover{
+  background-color: #262626;
 }
