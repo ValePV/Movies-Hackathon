@@ -1,1 +1,135 @@
+body{
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+.navigation{
+  background-color: black;
+  border-radius: 0em;
+  margin-bottom: 0em;
+  border-top: 0em;
+  border-left: 0em;
+  border-right: 0em;
+}
+
+.btn_sign, .btn_search, .btn_profile {
+  background-color: black;
+  border: 0em;
+
+}
+
+.navbar-default .navbar-nav>li>a{
+color: #c7c7c7;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+  border: 0em;
+  color: rgb(248, 158, 0);
+
+}
+
+.log{
+  width: 10em;
+  height: 5em;
+}
+
+.logo{
+  width: 150%;
+  display: inline-block;
+
+}
+
+.nav_bar{
+padding-top: 1em;
+}
+
+.btn_log{
+  background-color: black;
+  border: 0.1em solid rgb(248, 158, 0);
+}
+
+.btn_log:hover{
+  background-color: rgb(248, 158, 0);
+  border: 0.1em solid rgb(248, 158, 0);
+}
+
+.btn_log:focus{
+  background-color: rgb(248, 158, 0);
+  border: 0.1em solid rgb(248, 158, 0);
+}
+
+.btn_log:visited{
+  background-color: rgb(248, 158, 0);
+  border: 0.1em solid rgb(248, 158, 0);
+}
+
+.btn_log:active{
+  background-color: rgb(248, 158, 0);
+  border: 0.1em solid rgb(248, 158, 0);
+}
+
+.modal_background{
+  background-color: black;
+  text-align: center;
+  color: rgb(248, 158, 0);
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+.m_head{
+  border-bottom: 1px solid rgb(248, 158, 0);
   
+}
+
+.m_footer{
+  border-top: 1px solid rgb(248, 158, 0);
+}
+
+.btn_create{
+  background-color: rgb(248, 158, 0);
+  border: 1px solid rgb(248, 158, 0);
+}
+
+.btn_create:hover{
+  background-color: rgb(248, 158, 0);
+  border: 1px solid rgb(248, 158, 0);
+}
+
+.btn_create:active{
+  background-color: rgb(248, 158, 0);
+  border: 1px solid rgb(248, 158, 0);
+}
+
+.btn_create:focus{
+  background-color: rgb(248, 158, 0);
+  border: 1px solid rgb(248, 158, 0);
+}
+
+.link a:focus{
+  background-color: rgb(248, 158, 0);
+}
+
+.first_section{
+  background-color: #262626;
+}
+
+.title{
+  color: rgb(248, 158, 0);
+  font-family: 'Libre Franklin', sans-serif;
+  padding-top: 1em;
+}
+
+.card{
+  margin-top: 2em;
+  margin-right: 4em;
+  background-color: rgb(248, 158, 0);
+  float: left;
+  display: inline-block;
+}
+
+.cards_movies{
+ width: 100%;
+  
+}
+
+.nav_float{
+  float: right !important;
+}
