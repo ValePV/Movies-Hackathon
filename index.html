@@ -28,7 +28,7 @@
               <a class="btn btn-default btn-outline btn-circle collapsed btn_search"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
             </li>
             <li>
-              <a class="btn btn-default btn-outline btn-circle collapsed btn_profile"  data-toggle="collapse" href="#nav-collapse4" aria-expanded="false" aria-controls="nav-collapse4">Profile <i class=""></i> </a>
+              <a id="profile" class="btn btn-default btn-outline btn-circle collapsed btn_profile"  data-toggle="collapse" href="#nav-collapse4" aria-expanded="false" aria-controls="nav-collapse4">Profile <i class=""></i> </a>
             </li>
           </ul>
           <ul class="collapse nav navbar-nav nav-collapse slide-down nav_float" role="search" id="nav-collapse4">
@@ -38,7 +38,7 @@
                 <li><a class="link" href="#">My profile</a></li>
                 <li><a href="#">Favorited</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Logout</a></li>
+                <li><a onclick="cerrar()" href="#">Logout</a></li>
               </ul>
             </li>
           </ul>
@@ -60,7 +60,7 @@
                 <label class="sr-only" for="Password">Password</label>
                 <input type="password" class="form-control" id="Password" placeholder="Password" required />
               </div>
-              <button type="submit" class="btn btn-success btn_log">Log in</button>
+              <button onclick="ingresar()" type="submit" class="btn btn-success btn_log">Log in</button>
               <button type="button" class="btn btn-success btn_log" data-toggle="modal" data-target="#mimodal">Sign in</button>
             </form>
           </div>
@@ -73,19 +73,13 @@
                     <h4 class="modal-title">Abre una cuenta</h4>
                   </div>
                   <div class="modal-body">
-                    <input id="name" class="input_register" type="text" name="input" placeholder="Nombres">
-                  </div>
-                  <div>
-                    <input id="lastName" class="input_register" type="text" name="input" placeholder="Apellidos">
-                  </div>
-                  <div class="modal-body">
                     <input id="email" class="input_register1" type="text" name="input" placeholder="Correo electrónico">
                   </div>
                   <div class="modal-body">
                     <input id="password" class="input_register1" type="text" name="input" placeholder="Contraseña">
                   </div>
                   <div class="modal-footer m_footer">
-                    <button onclick="register()" type="submit" class="btn btn-primary btn_create" data-dismiss="modal">Crear cuenta</button>
+                    <button onclick="registrar()" type="submit" class="btn btn-primary btn_create" data-dismiss="modal">Crear cuenta</button>
                   </div>
                 </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
@@ -147,6 +141,23 @@
         </div>
       </div>
     </section>
+
+<div id="contenido">
+  
+</div>
+ <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+ <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAl53XQTTqh9ZKSzhhI6CCPGrxjA0ZJrD4",
+        authDomain: "dbgenesis-423f3.firebaseapp.com",
+        databaseURL: "https://dbgenesis-423f3.firebaseio.com",
+        projectId: "dbgenesis-423f3",
+        storageBucket: "",
+        messagingSenderId: "34190671996"
+      };
+      firebase.initializeApp(config);
+    </script>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
       <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
