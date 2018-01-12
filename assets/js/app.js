@@ -1,157 +1,125 @@
- /*Registro de nuevos usuarios*/
-function registrar(){
-    //console.log('diste click en Ingresar');
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-
-    //console.log(email);
-    //console.log(password);
-     if (email ==="" || password==="" ) {
-      alert('Debe Ingresar datos');
-    }
-    else{
-      firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(function (){
-        //verificarEmail()
-      })
-      .catch(function(error) { //promesa catch, si la autentificacion no ocurre catch ejecuta una funcion con parametro e, donde e guardo 2 errores en variables
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
-        // ...
-       });
-    } 
-   
-
-  }
-
-/*Ingreso usuarios o logueo*/
-function ingresar(){
-    console.log('diste click en Ingresar');
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    //console.log(email);
-    //console.log(password); 
-   if (email === "" || password === "" ) {
-      alert('Debe Ingresar datos');
-    }
-    else{
-         firebase.auth().signInWithEmailAndPassword(email, password)
-        .catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-          console.log(errorCode);
-          console.log(errorMessage);
-        // ...
-    });
-}
-
-
-}
-
-/*función que observa la sesion activa de un usuario*/
-function observador(){
-  //Siexiste un cambio de usuario, se ejecuta un if y caso contrario ejecuta un else
-  firebase.auth()
-  .onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    aparece(user); // se envia el parametro user a la funcion aparece
-    console.log('Existe usuario activo');
-    var displayName = user.displayName;
-    var email = user.email;
-    console.log('Correo verificado: ' + user.emailVerified); 
-    var emailVerified = user.photoURL;
-    var isAnonymous = user.isAnonymous;
-    var uid = user.uid;
-    var providerData = user.providerData;
-  } else {
-    // No user is signed in.
-    console.log('No existe usuario activo');
-  }
+$(document).ready(function(){
+// Splash versión móvil:
+  $(function() {
+    setTimeout(function() {
+      $('#splash').fadeOut(700);
+    }, 3000);
 });
-}
-observador(); //se ejecutacuando se carga la practica
+  
+  $('.second_section2').hide();
+  $('.third_section').hide();
+  $('.fourth_section').hide();
+  $('.fifth').hide();
+  $('.btn_movie').click(function(){
+  $('.first_section').hide();
+  $('.second_section2').show();
+  $('.third_section').show();
+  $('.fourth_section').show();
+  $('.btn_movie').hide();
+  $('.logo').click(function(){
+    $('.first_section').show();
+    $('.second_section2').hide();
+    $('.third_section').hide();
+    $('.fourth_section').hide();
+    $('.fifth').hide();
+    $('.btn_movie').show();
+  $('.btn_profile').click(function(){
+    $('.fifth').show();
+    $('.div_row').hide();
+    $('.first_section').hide();
+    $('.second_section2').hide();
+    $('.third_section').hide();
+    $('.fourth_section').hide();
+      
 
-/*Contenido para usuarios logueados*/
-function aparece(user){ //parametro user recibido desde el observador
-  var user = user;
-  var contenido = document.getElementById('contenido');
-    if (user.emailVerified) {
-        /*Comillas especiales nos permiten hacer template donde podemos escribir codigo html en el codigo javascript*/
-      contenido.innerHTML = `
-      <p>Bienvenido</p>  
-      <button onclick="cerrar()">Cerrar sesión</button>
-      `;
-    }
-  //contenido.innerHTML = 'prueba del perfil usuario';
+});
 
-}
-/*Funcion para desloguearse Pendiente de terminar*/
-function cerrar(){
-    firebase.auth().signOut() // Cierra sesion desde firebase, toma 2 parametros then y catch
-    .then(function() { // (respuesta positiva)
-    // Sign-out successful.
-        //console.log('Sesión cerrada');
-        alert('Su sesion ha cerrado');
-
-     }).catch(function(error) {//(respuesta negativa)/error : parametro
-    // An error happened.
-    console.log(error);
-    });
-}
-
-/*Envía un mensaje de verificación al usuario*/
-function verificarEmail(){
-  var user = firebase.auth().currentUser;
-
-  user.sendEmailVerification()
-  .then(function() { // (respuesta positiva)
-  // Email sent.
-  alert('Enviando confirmacion a tu correo...');
-  console.log("Correo enviado con éxito"); //muestra un mensaje que 
-  }).catch(function(error) {//(respuesta negativa)
-  // An error happened.
-  console.log(error); //pinta error de verificacion
   });
-}
+});
 
+var todayFeed = new Date();
+    var date = todayFeed.getDate();
+    var month = todayFeed.getMonth();
+    var year = todayFeed.getFullYear();
+    var hours = todayFeed.getHours();
+    var minutes = todayFeed.getMinutes();
+    var fullDate = date +'/'+ month +'/'+ year +' '+ hours +':'+ minutes
+$('#sendBtn').click(function() {
+    if ($('#comment').val() !== "") {
+        $('#commentList').append(
+          "<div class='commentTxt'>" +
+            "<p>" + 
+              "<span>  " + fullDate + " </span>" + $('#comment').val() +
+            "</p>" +
+          "</div>"  
+        );
+      }
+  });
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-No se implementa
-//Funcion que verifica que el email tenga el formato correcto
-function validateEmail(email) {
-  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(email);
-}
-
-function validate() {
-  $("#result").text("");
-  var email = $("#email").val();
-  if (validateEmail(email)) {
-    $("#result").text(email + " es válido :)");
-    $("#result").css("color", "green");
-  } else {
-    $("#result").text(email + " no es válido :(");
-    $("#result").css("color", "red");
+$(document).ready(function(){
+  var imgItems = $('.slider li').length; //Numero de slides
+  var imgPos = 1;
+  //Agregando paginación
+  for(i = 1;i <= imgItems; i++){
+    $('.pagination').append('<li class="col-sm-2 col-md-2"><i class="fa fa-circle" aria-hidden="true"></i></li>');
   }
-  return false;
-}
-*/
+  
+  $('.slider li').hide(); //ocultar las imagenes
+  $('.slider li:first').show();//mostrar la primera imagen
+  $('.pagination li:first').css({'color':'#cd6e2e'}); //cambiar el color del primer icono
+
+  //Ejecución de las funciones
+  $('.pagination li').click(pagination);
+  $('.right span').click(nextSlider);
+  $('.left span').click(prevSlider);
+  
+  //intervalos en n segundos
+  setInterval(function(){
+    nextSlider();
+  }, 4000);
+  //Funciones
+  function pagination(){
+    //variable que se selecciones el elemento que estoy clickeando, index(el valor de la posicion del elemento)
+    var paginationPos = $(this).index() + 1;
+    //ocultar y mostrar la imagen correspondiente al icono que hacemos click
+    $('.slider li').hide();
+    $('.slider li:nth-child('+ paginationPos +')').fadeIn();
+    //cambiar de color el icono segun corresponda
+    $('.pagination li').css({'color':'#858585'});
+    $(this).css({'color':'#CD6E2E'});
+
+    imgPos = paginationPos;
+  }
+
+  function nextSlider(){
+    if(imgPos >= imgItems){
+      imgPos = 1;
+    } else {
+      imgPos++;
+    }
+
+    $('.pagination li').css({'color':'#858585'});
+    $('.pagination li:nth-child('+ imgPos +')').css({'color':'#CD6E2E'});
+    //ocultar y mostrar la imagen correspondiente al icono que hacemos click
+    $('.slider li').hide();
+    $('.slider li:nth-child('+ imgPos +')').fadeIn();
+  }
+
+  function prevSlider(){
+    if(imgPos <= 1){
+      imgPos = imgItems;
+    } else {
+      imgPos--;
+    }
+
+    $('.pagination li').css({'color':'#858585'});
+    $('.pagination li:nth-child('+ imgPos +')').css({'color':'#CD6E2E'});
+    //ocultar y mostrar la imagen correspondiente al icono que hacemos click
+    $('.slider li').hide();
+    $('.slider li:nth-child('+ imgPos +')').fadeIn();
+  }
+
+
+});
+

@@ -6,17 +6,25 @@
  	<title>Hackathon</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/main.css">
 </head>
 <body>
+  <div class="row splash_row">
+    <div class="col-xs-12 col-sm-12 col hidden-md col hidden-lg" id="splash">
+      <img class="logo_splash" src="assets/images/l2.png">
+        <h4 id="txt_splash">Aquí comienza tu búsqueda para ver películas</h4>
+    </div>
+  </div>
   <div>
     <!-- Second navbar for sign in -->
     <nav class="navbar navbar-default navigation">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          
-          <a class="navbar-brand log" href="#"><img src="assets/images/3.png" alt="" class="logo"></a>
+        <div class="navbar-header nav_logo">
+          <a class="navbar-brand log" href="#"><img src="assets/images/l2.png" 
+          alt="" class="logo">
+          </a>
         </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse nav_bar" id="navbar-collapse-2">
@@ -35,7 +43,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img class="img-circle" src="assets/images/amigo4.png" alt="maridlcrmn" width="20" /> User <span class="caret"></span></a>
               <ul class="dropdown-menu menu_nav" role="menu">
-                <li><a class="link" href="#">My profile</a></li>
+                <li><a class="link btn_profile" href="#">My profile</a></li>
                 <li><a href="#">Favorited</a></li>
                 <li class="divider"></li>
                 <li><a onclick="cerrar()" href="#">Logout</a></li>
@@ -66,29 +74,41 @@
           </div>
           <!--modal-->
           <div class="modal fade" id="mimodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content modal_background">
-                  <div class="modal-header m_head">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <div class="modal-dialog" role="document">
+              <div class="modal-content modal_background">
+                <div class="modal-header m_head">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Abre una cuenta</h4>
-                  </div>
-                  <div class="modal-body">
-                    <input id="email" class="input_register1" type="text" name="input" placeholder="Correo electrónico">
-                  </div>
-                  <div class="modal-body">
-                    <input id="password" class="input_register1" type="text" name="input" placeholder="Contraseña">
-                  </div>
-                  <div class="modal-footer m_footer">
-                    <button onclick="registrar()" type="submit" class="btn btn-primary btn_create" data-dismiss="modal">Crear cuenta</button>
-                  </div>
-                </div><!-- /.modal-content -->
-              </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-          </div><!-- /.navbar-collapse -->
+                </div>
+                <div class="modal-body">
+                  <input id="email" class="input_register1" type="text" name="input" placeholder="Correo electrónico">
+                </div>
+                <div class="modal-body">
+                  <input id="password" class="input_register1" type="text" name="input" placeholder="Contraseña">
+                </div>
+                <div class="modal-footer m_footer">
+                  <button onclick="registrar()" type="submit" class="btn btn-primary btn_create" data-dismiss="modal">Crear cuenta</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+        </div><!-- /.navbar-collapse -->
+        <div class="col-xs-6 col-sm-6 col hidden-md col hidden-lg btn-group btn_movil">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="caret"></span>
+          </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Log in</a></li>
+              <li><a href="#">Sign in</a></li>
+              <li><a href="#">My profile</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Log out</a></li>
+            </ul>
+          </div>
         </div><!-- /.container -->
       </nav><!-- /.navbar -->
     </div>
-  </div><!-- /.container-fluid -->
+  </div>
   <div class="row div_row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 gradient">
       <a class="btn_movie"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Movies
@@ -96,57 +116,193 @@
       </a>
     </div>
   </div>
+  <!--pagina principal-->
   <section class="first_section">
     <div class="container">
-      <h2 class="title">Próximos estrenos</h2>
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cards_movies">
-            <div class="thumbnail card">
-             <iframe width="100%" height="215" src="https://www.youtube.com/embed/NPNn0JUp9w4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-              <div class="caption">
-                <h3>Thumbnail label</h3>
-                <p>...</p>
-                <p><a href="#" class="btn btn-primary btn_thumb" role="button">More</a> 
-              </div>
+      <div class="row">
+        <div class="col-xs-11 col-sm-11 col hidden-md col hidden-lg input_search">
+          <div class="navbar-form navbar-right right_search" role="search">
+            <div class="form-group input_movil">
+              <input type="text" class="form-control" placeholder="Search" />
             </div>
-            <div class="thumbnail card">
-              <iframe width="100%" height="215" src="https://www.youtube.com/embed/NPNn0JUp9w4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-              <div class="caption">
-                <h3>Thumbnail label</h3>
-                <p>...</p>
-                <p><a href="#" class="btn btn-primary btn_thumb" role="button">More</a>
+            <button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          </div>
+        </div>
+      </div>
+    <div>
+      <div class="slideshow">
+        <div class="content-title page-header">
+          <h1 class="text-center">Próximos estrenos</h1>
+        </div>
+        <div class="row content">
+          <ul class="slider col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <li>
+              <img src="assets/images/foto1.jpg">
+            </li>
+            <li>
+              <img src="assets/images/foto2.jpg">
+            </li>
+            <li>
+              <img src="assets/images/foto3.jpg">
+            </li>
+            <li>
+              <img src="assets/images/foto4.jpg">
+            </li>
+          </ul>
+        </div>
+      <div class="row cont-selec">
+        <div class="selec col hidden-xs col hidden-sm col-sm-12 col-md-12 col-lg-12">
+          <ol class="pagination">
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="second_section2">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <h2 class="title_2"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Descubre películas</h2>
+          <div class="filter">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Año <span class="caret"></span>
+              </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">2017</a></li>
+                  <li><a href="#">2016</a></li>
+                  <li><a href="#">2015</a></li>
+                  <li><a href="#">2014</a></li>
+                  <li><a href="#">2013</a></li>
+                </ul>
               </div>
-            </div>
-            <div class="thumbnail card">
-              <iframe width="100%" height="215" src="https://www.youtube.com/embed/NPNn0JUp9w4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-                <div class="caption">
-                  <h3>Thumbnail label</h3>
-                  <p>...</p>
-                  <p><a href="#" class="btn btn-primary btn_thumb" role="button">More</a>
-                </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Género <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Acción</a></li>
+                  <li><a href="#">Romance</a></li>
+                  <li><a href="#">Drama</a></li>
+                  <li><a href="#">Comedia</a></li>
+                </ul>
+              </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Idioma <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Español</a></li>
+                  <li><a href="#">Inglés</a></li>
+                  <li><a href="#">Francés</a></li>
+                </ul>
+              </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Puntuación <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><label for="radio1">★</label></a></li>
+                  <li><a href="#"><label for="radio1">★</label><label for="radio1">★</label></a></li>
+                  <li><a href="#"><label for="radio1">★</label><label for="radio1">★</label><label for="radio1">★</label></a></li>
+                  <li><a href="#"><label for="radio1">★</label><label for="radio1">★</label><label for="radio1">★</label><label for="radio1">★</label></a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="second_section2">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <h2 class="title_2"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Descubre películas</h2>
-            <div>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-<div id="contenido">
+    <div id="contenido">
   
-</div>
- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
- <script>
+    </div>
+    <div class="container">
+      <section class="third_section">
+        <h3 class="txt_filter">Filtro</h3>
+        <div class="row">
+          <div class="col-xs-6 col-md-3">
+            <a href="#" class="thumbnail">
+              <iframe width="100%" height="auto" src="https://www.youtube.com/embed/NPNn0JUp9w4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+              <h4>TITLE</h4>
+            </a>
+          </div>
+          <div class="col-xs-6 col-md-3">
+            <a href="#" class="thumbnail">
+              <iframe width="100%" height="auto" src="https://www.youtube.com/embed/NPNn0JUp9w4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+              <h4>TITLE</h4>
+            </a>
+          </div>
+          <div class="col-xs-6 col-md-3">
+            <a href="#" class="thumbnail">
+              <iframe width="100%" height="auto" src="https://www.youtube.com/embed/NPNn0JUp9w4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+              <h4>TITLE</h4>
+            </a>
+          </div>
+          <div class="col-xs-6 col-md-3">
+            <a href="#" class="thumbnail">
+              <iframe width="100%" height="auto" src="https://www.youtube.com/embed/NPNn0JUp9w4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+              <h4>TITLE</h4>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="container">
+    <section class="fourth_section">
+      <div class="row">
+        <div class="col-xs12 col-sm-12 col-md-6 col-lg-6">
+          <iframe width="100%" height="215" src="https://www.youtube.com/embed/NPNn0JUp9w4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+            <!--estrellas-->
+            <h3 class="txt_form">Calificación</h3>
+            <form class="stars">
+              <p class="clasificacion">
+                <input id="radio1" type="radio" name="estrellas" value="5">
+                <label for="radio1">★</label>
+                <input id="radio2" type="radio" name="estrellas" value="4">
+                <label for="radio2">★</label>
+                <input id="radio3" type="radio" name="estrellas" value="3">
+                <label for="radio3">★</label>
+                <input id="radio4" type="radio" name="estrellas" value="2">
+                <label for="radio4">★</label>
+              </p>
+            </form>
+        </div>
+          <div class="col-xs12 col-sm-12 col-md-6 col-lg-6 text_frame">
+            <p>Título:</p>
+            <p>Año de estreno:</p>
+            <p>Idioma:</p>
+            <p>Resumen:</p>
+          </div>
+        </div>
+        <!--Comentarios-->
+        <div id="commentBox">
+          <textarea id="comment" name="comentario" placeholder="Comentario" rows="2"></textarea>
+          <button class="btn btn-default btn_comment" id="sendBtn" type="submit" name="enviar">Comentar</button>
+        </div>
+        <div id="commentList">
+            <!--aquí van los comentarios-->
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="container fifth">
+    <h3 class="txt_form">Mi perfil</h3>
+    <section class="fifth_section">
+      <div class="row">
+          <div class="col-xs12 col-sm-12 col-md-12 col-lg-12 img_banner">
+            <img class="user" src="assets/images/amigo4.png" alt="">
+            <span class="glyphicon glyphicon-cog icon" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="col-xs12 col-sm-12 col-md-12 col-lg-12 txt_profile">
+            <h4>Nombre:</h4>
+            <h4>Nombre Usuario:</h4>
+            <h4>Preferencias (Género):</h4>
+          </div>
+      </section>
+    </div>
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script>
       // Initialize Firebase
       var config = {
         apiKey: "AIzaSyAl53XQTTqh9ZKSzhhI6CCPGrxjA0ZJrD4",
